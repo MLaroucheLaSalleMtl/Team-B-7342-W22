@@ -5,10 +5,15 @@ using UnityEngine;
 public class LookAtPlayer : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
-    [SerializeField] private Transform player;
+    private Transform player;
     [SerializeField] private float speedMove = 1.5f;
 
     private bool inSight = false;
+
+    private void Start()
+    {
+        player = GameManager.Instance.Player;
+    }
 
 
     private void OnTriggerEnter(Collider other)
