@@ -43,7 +43,7 @@ public class EnemyDamage : MonoBehaviour
                 rb.AddForce(-transform.forward * knockback * 1.2f, ForceMode.Impulse);
                 Destroy(parentImage);
                 //GetComponent<BoxCollider>().isTrigger = true;
-                GetComponent<EnemyMoving>().IsAlive = false;
+                GetComponent<EnemyMoving>().isAlive = false;
                 Invoke("DestroyEnemy", 5f);
             }
             if (enemyMoving)

@@ -100,8 +100,9 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.performed)
         {
-            GameManager.Instance.PuaseOrPlay();
             inputDirection = Vector2.zero;
+            if (!dash) moveDirection = Vector3.zero;
+            GameManager.Instance.PuaseOrPlay();
         }
     }
 

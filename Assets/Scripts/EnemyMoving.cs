@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyMoving : MonoBehaviour
 {
     //Declaring variables
+    //Declaring variables
     private Animator anim; //Enemy animator
     public bool isPassive = true; //Checks if it's passive
     public bool isAttacked = false; //Checks if it's under attack
@@ -13,7 +14,7 @@ public class EnemyMoving : MonoBehaviour
     public float rangeSmear = 100f;
     [SerializeField] private BloodSmear smear;
 
-    private bool isAlive = true; //Check if it's alive
+    public bool isAlive = true; //Check if it's alive
     //Get all the body Parts
     #region Body_Parts
     [SerializeField] private GameObject original;
@@ -27,17 +28,16 @@ public class EnemyMoving : MonoBehaviour
     [SerializeField] private GameObject sword;
     private List<GameObject> lsBodyParts = new List<GameObject>();
     #endregion 
-    [SerializeField] private GameObject bloodDead;
     [SerializeField] private GameObject blood; //Blood Particle
     [SerializeField] private float bloodOffsetY = 1.1f; //Y Coordinates of blood on the enemy
     [SerializeField] private int minForce = -6; //Min force of body part for death
     [SerializeField] private int maxForce = 6; //Max force of body part for death
-
+  
 
     //Moving speed of enemy variables
     [SerializeField] private float moveSpeed = 1.5f; //Speed of enemy
     [SerializeField] private float rotSpeed = 100f; //Speed of which it rotates
-
+    
     //Wandering variables
     private bool isWandering = false; //Wether it is wandering
     private bool isRotLeft = false; //See if it rotates left
@@ -47,11 +47,9 @@ public class EnemyMoving : MonoBehaviour
     //[SerializeField] 
     private Transform player; //Get the player
 
-    public bool IsAlive { get => isAlive; set => isAlive = value; }
-
     private void OnCollisionEnter(Collision collision)
     {
-        if (!IsAlive)
+        if (!isAlive)
         {
             if (collision.gameObject.CompareTag("Wall"))
             {
@@ -62,7 +60,7 @@ public class EnemyMoving : MonoBehaviour
 
     void DeadCheckWall()
     {
-        IsAlive = false;
+        isAlive = false;
         Invoke("Dead", 0.6f);
     }
 
@@ -116,14 +114,14 @@ public class EnemyMoving : MonoBehaviour
     void Explode()
     {
         Rigidbody rb;
-        foreach (GameObject gb in lsBodyParts)
+        foreach(GameObject gb in lsBodyParts)
         {
             rb = gb.GetComponent<Rigidbody>();
             rb.AddForce(transform.up * Random.Range(minForce, maxForce), ForceMode.Impulse);
             rb.AddForce(transform.forward * Random.Range(minForce, maxForce), ForceMode.Impulse);
         }
         //Instantiate(blood, transform.position, Quaternion.identity);
-
+       
     }
 
 
@@ -147,7 +145,7 @@ public class EnemyMoving : MonoBehaviour
     {
         GettingHit();
         //Keep checking if it's not attacking player
-        if (isPassive && IsAlive)
+        if (isPassive && isAlive)
         {
             //If it's not wandering
             if (!isWandering)
@@ -171,7 +169,7 @@ public class EnemyMoving : MonoBehaviour
                 transform.position += transform.forward * moveSpeed * Time.deltaTime;
             }
         }
-        if (!IsAlive)
+        if (!isAlive)
         {
             DeadCheckWall();
         }
@@ -184,7 +182,7 @@ public class EnemyMoving : MonoBehaviour
         float rotateWait = Random.Range(1, 4);
         int rotateLorR = Random.Range(1, 3); //1 is right, 2 is left
         float walkTime = Random.Range(1, 3);
-
+        
         //If not attacking player
         if (isPassive)
         {
