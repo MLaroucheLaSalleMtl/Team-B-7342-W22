@@ -7,6 +7,7 @@ public class LookAtPlayer : MonoBehaviour
     [SerializeField] private Transform enemy;
     private Transform player;
     [SerializeField] private float speedMove = 1.5f;
+    private float distancePlayer = 3f;
 
     private bool inSight = false;
 
@@ -42,7 +43,15 @@ public class LookAtPlayer : MonoBehaviour
             Vector3 lookDir = new Vector3(player.position.x - enemy.position.x, 0, player.position.z - enemy.position.z); //Get the position of the player
             Quaternion angle = Quaternion.LookRotation(lookDir); //Get the rotation the enemy must do
             enemy.rotation = angle;
-            enemy.transform.position += enemy.transform.forward * speedMove * Time.deltaTime;
+            Vector3 nextToPlayer = new Vector3(player.transform.position.x - distancePlayer, player.transform.position.y - 1.2f, player.transform.position.z - distancePlayer);
+            if (enemy.transform.position == nextToPlayer)
+            {
+                return;
+            }
+            else
+            {
+                enemy.transform.position += enemy.transform.forward * speedMove * Time.deltaTime;
+            }
         }
     }
 }

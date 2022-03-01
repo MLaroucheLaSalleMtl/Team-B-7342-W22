@@ -10,11 +10,13 @@ using UnityEngine.InputSystem;
 public class PlayerControl : MonoBehaviour
 {
     private Rigidbody rBody;
+    
     //variables for player movement
     private Vector3 moveDirection; //to hold the converted movement direction
     private Vector2 inputDirection = Vector2.zero; //to hold raw input direction
     [SerializeField] private float speed = 7f;
     [SerializeField] private float moveVelocitySmoothing = 0.05f;
+   
     //variables for jumping action
     private bool jump = false;
     [SerializeField] private float jumpForce = 5f;
@@ -23,10 +25,12 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private Transform checkGroundPoint;
     [SerializeField] private LayerMask whatIsGround;
     private Vector3 refVelocity = Vector3.zero;
+   
     //variables for dash action
     private bool dash = false;
     [SerializeField] private float dashForce = 0.5f;
     [SerializeField] private float allowDashAgainAfter = 0.7f;
+    
     //variables for Hit action
     [SerializeField] private float hitRadius = 1f;
     [SerializeField] private float hitDamage = 10f;
@@ -34,6 +38,7 @@ public class PlayerControl : MonoBehaviour
     //variables for rotation of the player
     private Vector3 facingDirection = Vector3.forward;
     [SerializeField] private float rotationSmoothing = 0.05f;
+    
     //variables for camera rotation
     [SerializeField] private float rotateCameraY = 30f;
     private Vector3 camRotVec = Vector3.zero;
@@ -53,7 +58,20 @@ public class PlayerControl : MonoBehaviour
         ApplyJumpForce();
         ApplyDashForce();
         RotatePlayer();
-        GameManager.Instance.MainCamera.eulerAngles += (camRotVec * Time.deltaTime);
+        RotateCamera();
+    }
+
+    private void RotateCamera()
+    {
+        if (camRotVec != Vector3.zero)
+        {
+            GameManager.Instance.MainCamera.eulerAngles += (camRotVec * Time.deltaTime);
+            if (!dash)
+            {
+                //calculate the correct movement direction Vector3 relative to the isometric camera and store it in moveDirection
+                moveDirection = ConvertInputDirection(inputDirection);
+            }
+        }
     }
 
     //will ritate the player to face the input move direction vector
@@ -100,10 +118,15 @@ public class PlayerControl : MonoBehaviour
     {
         if (context.performed)
         {
-            inputDirection = Vector2.zero;
-            if (!dash) moveDirection = Vector3.zero;
+            ResetMoveDirection();
             GameManager.Instance.PuaseOrPlay();
         }
+    }
+
+    public void ResetMoveDirection()
+    {
+        inputDirection = Vector2.zero;
+        if (!dash) moveDirection = Vector3.zero;
     }
 
     public void OnMove(InputAction.CallbackContext context)

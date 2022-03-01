@@ -6,11 +6,13 @@ public class AttackPlayer : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
     private Animator anim;
-   
+
     private void Start()
     {
         anim = enemy.GetComponent<Animator>();
     }
+
+
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +21,10 @@ public class AttackPlayer : MonoBehaviour
             enemy.GetComponent<EnemyMoving>().isPassive = false;
             anim.SetBool("Walk", false);
             anim.SetBool("Attack", true);
+        }
+        else
+        {
+            StartCoroutine(enemy.GetComponentInParent<EnemyMoving>().RotateAround());
         }
     }
 
@@ -29,6 +35,7 @@ public class AttackPlayer : MonoBehaviour
             enemy.GetComponent<EnemyMoving>().isPassive = true;
             anim.SetBool("Attack", false);
             anim.SetBool("Walk", true);
+
         }
     }
 }

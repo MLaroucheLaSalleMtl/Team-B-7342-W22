@@ -5,10 +5,18 @@ using UnityEngine.UI;
 
 public class EnemyDamage : MonoBehaviour
 {
+
+    [SerializeField] private BloodSmear smear;
+    //Particle Blood
+    [SerializeField] private GameObject blood; //Blood Particle
+    [SerializeField] private float bloodOffsetY = 1.1f; //Y Coordinates of blood on the enemy
+
+
     [SerializeField] private Image imageForHP;
     [SerializeField] private Image parentImage;
     [SerializeField] private float bleedingDuration = 0.8f;
     [SerializeField] private float knockback = 5f;
+    private float knockbackDead = 1.2f;
     private EnemyMoving enemyMoving;
 
     private Rigidbody rb;
@@ -40,7 +48,7 @@ public class EnemyDamage : MonoBehaviour
 
             if (IsDead)
             {
-                rb.AddForce(-transform.forward * knockback * 1.2f, ForceMode.Impulse);
+                rb.AddForce(-transform.forward * knockback * knockbackDead, ForceMode.Impulse);
                 Destroy(parentImage);
                 //GetComponent<BoxCollider>().isTrigger = true;
                 GetComponent<EnemyMoving>().isAlive = false;
@@ -48,11 +56,22 @@ public class EnemyDamage : MonoBehaviour
             }
             if (enemyMoving)
             {
+                smear.Splat();
                 rb.AddForce(-transform.forward * knockback, ForceMode.Impulse);
                 enemyMoving.isAttacked = true;
                 Invoke("StopBleeding", bleedingDuration);
             }
         }
+    }
+
+    public void SmearOnWall()
+    {
+        /*if (enemyMoving.isAttacked)
+        {*/
+            
+           /* Vector3 bloodPos = new Vector3(transform.position.x, transform.position.y + bloodOffsetY, transform.position.z);
+            Instantiate(blood, bloodPos, Quaternion.identity);
+        //}*/
     }
 
     private void DestroyEnemy()
@@ -66,12 +85,5 @@ public class EnemyDamage : MonoBehaviour
         {
             enemyMoving.isAttacked = false;
         }
-    }
-
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

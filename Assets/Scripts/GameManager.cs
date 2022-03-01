@@ -67,6 +67,7 @@ public class GameManager : MonoBehaviour
             case GameState.Death:
                 break;
             case GameState.Cutscene:
+                GameManager.Instance.Player.GetComponent<PlayerControl>().ResetMoveDirection();
                 break;
 //default:
 //  error catch

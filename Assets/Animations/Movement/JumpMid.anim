@@ -1,0 +1,785 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!74 &7400000
+AnimationClip:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: JumpMid
+  serializedVersion: 6
+  m_Legacy: 0
+  m_Compressed: 0
+  m_UseHighQualityCurve: 1
+  m_RotationCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.018809728, y: 0.00032695348, z: 0.017392684, w: 0.9997225}
+        inSlope: {x: 0.01864549, y: -0.0003243135, z: 0.00000013091731, w: -0.000002247946}
+        outSlope: {x: 0.01864549, y: -0.0003243135, z: 0.00000013091731, w: -0.000002247946}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: -0.01576938, y: 0.0002740788, z: 0.017392442, w: 0.99972713}
+        inSlope: {x: 0.009776126, y: -0.00017000079, z: -0.0000012874593, w: 0.00002489088}
+        outSlope: {x: 0.009776126, y: -0.00017000079, z: -0.0000012874593, w: 0.00002489088}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.087521166, y: -0.003230427, z: -0.00001732134, w: 0.9961574}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.087521166, y: -0.003230427, z: -0.00001732134, w: 0.9961574}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.087521166, y: -0.003230427, z: -0.00001732134, w: 0.9961574}
+        inSlope: {x: -0.8479302, y: 0.029488651, z: 0.00015810168, w: 0.044402022}
+        outSlope: {x: -0.8479302, y: 0.029488651, z: 0.00015810168, w: 0.044402022}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.76693654, y: -0.19160824, z: -0.12151191, w: 0.6003805}
+        inSlope: {x: -0.014327049, y: -0.037762046, z: -0.026454628, w: 0.0000052452087}
+        outSlope: {x: -0.014327049, y: -0.037762046, z: -0.026454628, w: 0.0000052452087}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.7644314, y: -0.19509934, z: -0.12844159, w: 0.6009023}
+        inSlope: {x: -0.011921213, y: -0.011956618, z: -0.044290237, w: 0.001876123}
+        outSlope: {x: -0.011921213, y: -0.011956618, z: -0.044290237, w: 0.001876123}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.7640596, y: -0.19535069, z: -0.12957877, w: 0.6010494}
+        inSlope: {x: 0.3528086, y: 0.30192643, z: -0.7797871, w: -0.59950846}
+        outSlope: {x: 0.3528086, y: 0.30192643, z: -0.7797871, w: -0.59950846}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/thighleg.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.7143966, y: -0.0018836686, z: -0.41768986, w: 0.5613994}
+        inSlope: {x: -0.000035762787, y: 0.0027444558, z: -0.002272129, w: -0.0016374588}
+        outSlope: {x: -0.000035762787, y: 0.0027444558, z: -0.002272129, w: -0.0016374588}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.71439123, y: -0.0014798212, z: -0.41802427, w: 0.56115836}
+        inSlope: {x: -0.000025749305, y: 0.0019411724, z: -0.0016075433, w: -0.001159434}
+        outSlope: {x: -0.000025749305, y: 0.0019411724, z: -0.0016075433, w: -0.001159434}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.7143905, y: -0.0014256903, z: -0.4180691, w: 0.561126}
+        inSlope: {x: -0.3766973, y: -0.000887572, z: 0.21990226, w: 0.60230726}
+        outSlope: {x: -0.3766973, y: -0.000887572, z: 0.21990226, w: 0.60230726}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/thighleg.L/shinleg.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.22433558, y: -0.0006534287, z: -0.013037337, w: 0.97442454}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: -0.22433558, y: -0.0006534287, z: -0.013037337, w: 0.97442454}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: -0.22433558, y: -0.0006534287, z: -0.013037337, w: 0.97442454}
+        inSlope: {x: 2.0043066, y: -0.041784517, z: -0.015560438, w: 0.28584406}
+        outSlope: {x: 2.0043066, y: -0.041784517, z: -0.015560438, w: 0.28584406}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.048080593, y: -0.005925535, z: 0.0044921073, w: 0.99873364}
+        inSlope: {x: 0.0011164291, y: -0.15464528, z: 0.47307888, w: -0.002285966}
+        outSlope: {x: 0.0011164291, y: -0.15464528, z: 0.47307888, w: -0.002285966}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.041666508
+        value: {x: -0.04808543, y: -0.010170685, z: 0.017158737, w: 0.99864405}
+        inSlope: {x: -0.0029186255, y: -0.027246015, z: 0.050293885, w: -0.00074674364}
+        outSlope: {x: -0.0029186255, y: -0.027246015, z: 0.050293885, w: -0.00074674364}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: -0.048613187, y: -0.0036547035, z: -0.006828393, w: 0.99878764}
+        inSlope: {x: -0.005664802, y: 0.1777595, z: -0.43834513, w: -0.0036606928}
+        outSlope: {x: -0.005664802, y: 0.1777595, z: -0.43834513, w: -0.0036606928}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: -0.048785836, y: 0.0060929116, z: -0.026509134, w: 0.99843884}
+        inSlope: {x: -0.5319767, y: 0.2960658, z: -0.43500113, w: -0.05124916}
+        outSlope: {x: -0.5319767, y: 0.2960658, z: -0.43500113, w: -0.05124916}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib/head
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.28231376, y: 0.3573288, z: -0.2565587, w: -0.85259235}
+        inSlope: {x: 0.114342146, y: -0.10099099, z: -0.045311138, w: -0.067733}
+        outSlope: {x: 0.114342146, y: -0.10099099, z: -0.045311138, w: -0.067733}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: -0.2821956, y: 0.34783792, z: -0.25544897, w: -0.8568082}
+        inSlope: {x: -0.027400121, y: -0.039888892, z: 0.02882742, w: -0.01579076}
+        outSlope: {x: -0.027400121, y: -0.039888892, z: 0.02882742, w: -0.01579076}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: -0.28320575, y: 0.34683412, z: -0.25394052, w: -0.85733}
+        inSlope: {x: -0.23687422, y: -0.89929897, z: 1.0000551, w: -0.48318097}
+        outSlope: {x: -0.23687422, y: -0.89929897, z: 1.0000551, w: -0.48318097}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib/shoulder/bicep.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.0024594697, y: -0.02640917, z: -0.00068540114, w: 0.999648}
+        inSlope: {x: -0.000000033527613, y: -0.000000014901161, z: 0.000000027939677, w: 0}
+        outSlope: {x: -0.000000033527613, y: -0.000000014901161, z: 0.000000027939677, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.0024594658, y: -0.026409173, z: -0.00068539765, w: 0.999648}
+        inSlope: {x: -0.000000030733762, y: -0.000000044703654, z: 0.00000002863828, w: 0}
+        outSlope: {x: -0.000000030733762, y: -0.000000044703654, z: 0.00000002863828, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.0024594644, y: -0.026409177, z: -0.0006853965, w: 0.999648}
+        inSlope: {x: 2.5966265, y: 0.00828651, z: -0.7236178, w: -0.31363153}
+        outSlope: {x: 2.5966265, y: 0.00828651, z: -0.7236178, w: -0.31363153}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib/shoulder/bicep.L/forearm.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.19417569, y: 0.11542675, z: -0.07863474, w: 0.9710343}
+        inSlope: {x: -0.0029545454, y: -0.019866515, z: -0.21492204, w: -0.013256563}
+        outSlope: {x: -0.0029545454, y: -0.019866515, z: -0.21492204, w: -0.013256563}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.19667174, y: 0.112737924, z: -0.090274155, w: 0.9697737}
+        inSlope: {x: 0.04248081, y: -0.084840916, z: -0.019623116, w: -0.00071668904}
+        outSlope: {x: 0.04248081, y: -0.084840916, z: -0.019623116, w: -0.00071668904}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.19874339, y: 0.107655905, z: -0.09057805, w: 0.9699005}
+        inSlope: {x: 0.73488903, y: -1.6197901, z: 0.0019081566, w: -0.096893504}
+        outSlope: {x: 0.73488903, y: -1.6197901, z: 0.0019081566, w: -0.096893504}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib/shoulder/bicep.L/forearm.L/Chensaw.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.27703035, y: 0.42002785, z: -0.33015683, w: 0.7982127}
+        inSlope: {x: -0.6327834, y: 0.2131772, z: -0.093960285, w: 0.08115482}
+        outSlope: {x: -0.6327834, y: 0.2131772, z: -0.093960285, w: 0.08115482}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.041666508
+        value: {x: 0.26148778, y: 0.42398563, z: -0.33280995, w: 0.8006859}
+        inSlope: {x: -0.036812738, y: -0.06873663, z: -0.032939814, w: 0.03485442}
+        outSlope: {x: -0.036812738, y: -0.06873663, z: -0.032939814, w: 0.03485442}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.292552, y: 0.40261155, z: -0.33210385, w: 0.80126417}
+        inSlope: {x: 0.15646064, y: -0.09755517, z: -0.02655576, w: -0.016380135}
+        outSlope: {x: 0.15646064, y: -0.09755517, z: -0.02655576, w: -0.016380135}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.28878513, y: 0.40502638, z: -0.33491683, w: 0.8002421}
+        inSlope: {x: -0.038617954, y: -1.3566971, z: 1.6251142, w: 1.076031}
+        outSlope: {x: -0.038617954, y: -1.3566971, z: 1.6251142, w: 1.076031}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib/shoulder.001/bicep.R
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.0024813493, y: 0.026409166, z: 0.00069147674, w: 0.9996479}
+        inSlope: {x: -0.000051653944, y: -0.00000008940697, z: -0.000014380086, w: 0}
+        outSlope: {x: -0.000051653944, y: -0.00000008940697, z: -0.000014380086, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.0024756999, y: 0.026409155, z: 0.00068991835, w: 0.9996479}
+        inSlope: {x: -0.000012489083, y: -0.000000044703654, z: -0.0000032500955, w: 0}
+        outSlope: {x: -0.000012489083, y: -0.000000044703654, z: -0.0000032500955, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.0024751795, y: 0.026409153, z: 0.0006897829, w: 0.9996479}
+        inSlope: {x: 2.9591336, y: -0.010776252, z: 0.8246415, w: -0.4078815}
+        outSlope: {x: 2.9591336, y: -0.010776252, z: 0.8246415, w: -0.4078815}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib/shoulder.001/bicep.R/forearm.R
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.75932, y: 0.22670257, z: 0.10351828, w: 0.6011008}
+        inSlope: {x: -0.00014066696, y: 0.0073726177, z: -0.010613978, w: -0.00077581406}
+        outSlope: {x: -0.00014066696, y: 0.0073726177, z: -0.010613978, w: -0.00077581406}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.75934225, y: 0.22750305, z: 0.10235319, w: 0.6009705}
+        inSlope: {x: 0.0011394067, y: 0.0034983293, z: -0.0054313154, w: -0.0018382142}
+        outSlope: {x: 0.0011394067, y: 0.0034983293, z: -0.0054313154, w: -0.0018382142}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.7594101, y: 0.22758788, z: 0.102208704, w: 0.6008773}
+        inSlope: {x: 2.7614076, y: -2.8551283, z: 0.50461197, w: -7.1847186}
+        outSlope: {x: 2.7614076, y: -2.8551283, z: 0.50461197, w: -7.1847186}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/thighleg.R
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.72778416, y: 0.001365263, z: 0.42590708, w: 0.53752357}
+        inSlope: {x: -0.00000047683716, y: -0.00000048521906, z: -0.00000023841858, w: 0.00000071525574}
+        outSlope: {x: -0.00000047683716, y: -0.00000048521906, z: -0.00000023841858, w: 0.00000071525574}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.7277841, y: 0.0013652226, z: 0.42590708, w: 0.5375236}
+        inSlope: {x: 0, y: 0, z: 0, w: 0}
+        outSlope: {x: 0, y: 0, z: 0, w: 0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.7277841, y: 0.0013652226, z: 0.42590708, w: 0.5375236}
+        inSlope: {x: -8.684183, y: 0.014137566, z: -5.082078, w: 5.5495005}
+        outSlope: {x: -8.684183, y: 0.014137566, z: -5.082078, w: 5.5495005}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/thighleg.R/shinleg.R
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.44275975, y: 0.026020437, z: 0.012855598, w: 0.8961704}
+        inSlope: {x: 0.0000032186492, y: 0, z: 0.00000011175866, w: -0.0000017881385}
+        outSlope: {x: 0.0000032186492, y: 0, z: 0.00000011175866, w: -0.0000017881385}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.4427598, y: 0.02602044, z: 0.012855599, w: 0.8961704}
+        inSlope: {x: -0.0000051498373, y: 0.00000000894069, z: -0.0000001877545, w: 0.000003147123}
+        outSlope: {x: -0.0000051498373, y: 0.00000000894069, z: -0.0000001877545, w: 0.000003147123}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/legcontroller.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.5914234, y: -0.021878634, z: -0.019598061, w: 0.80582607}
+        inSlope: {x: 0.0000075101816, y: -0.0000001341104, z: -0.00000029616044, w: -0.000005722043}
+        outSlope: {x: 0.0000075101816, y: -0.0000001341104, z: -0.00000029616044, w: -0.000005722043}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.5914234, y: -0.021878634, z: -0.019598065, w: 0.805826}
+        inSlope: {x: -0.000012874593, y: 0.00000021457656, z: 0.0000004917379, w: 0.000009441368}
+        outSlope: {x: -0.000012874593, y: 0.00000021457656, z: 0.0000004917379, w: 0.000009441368}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334, w: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/legcontroller.R
+  m_CompressedRotationCurves: []
+  m_EulerCurves: []
+  m_PositionCurves:
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: -0.00000047664622, z: -0.0057547316}
+        inSlope: {x: 0, y: 0, z: 0.000001129219}
+        outSlope: {x: 0, y: 0, z: 0.000001129219}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0, y: -0.0000004766462, z: -0.0057545435}
+        inSlope: {x: 0, y: 0, z: 0.0000011324883}
+        outSlope: {x: 0, y: 0, z: 0.0000011324883}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0, y: 0.005904882, z: -0.00004265661}
+        inSlope: {x: 0, y: 0.0028965902, z: -0.00037591075}
+        outSlope: {x: 0, y: 0.0028965902, z: -0.00037591075}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.041666508
+        value: {x: -0, y: 0.0060107945, z: -0.000058319543}
+        inSlope: {x: -0, y: 0.0021872318, z: -0.0003759129}
+        outSlope: {x: -0, y: 0.0011231704, z: -0.00032792354}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.083333015
+        value: {x: -0, y: 0.006057593, z: -0.00007198297}
+        inSlope: {x: -0, y: 0.0011231704, z: -0.00032792354}
+        outSlope: {x: -0, y: 0.00041378656, z: -0.00023194292}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: -0, y: 0.006074834, z: -0.00008164733}
+        inSlope: {x: -0, y: 0.00041378656, z: -0.00023194292}
+        outSlope: {x: -0, y: 0.000059108956, z: -0.00008797947}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: -0, y: 0.006077297, z: -0.000085313135}
+        inSlope: {x: -0, y: 0.000059108956, z: -0.00008797947}
+        outSlope: {x: -0, y: -0.028606597, z: -0}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.0020416605, y: 0.002997422, z: 0.00028355312}
+        inSlope: {x: 0, y: 1.1403948e-10, z: -1.4254935e-11}
+        outSlope: {x: 0, y: 1.1403948e-10, z: -1.4254935e-11}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: -0.0020416605, y: 0.0029974221, z: 0.00028355312}
+        inSlope: {x: 0, y: 1.432804e-10, z: -1.791005e-11}
+        outSlope: {x: 0, y: 1.432804e-10, z: -1.791005e-11}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/basecontroller/hipcontroller/hip/rib/shoulder
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: -0.002802404, y: 0.00037564954, z: -0.00047452748}
+        inSlope: {x: -0.00004109113, y: 0.0003759087, z: 0.0036124932}
+        outSlope: {x: -0.00019517257, y: 0.00037591212, z: 0.0021985758}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.041666508
+        value: {x: -0.0028105362, y: 0.0003913125, z: -0.0003829205}
+        inSlope: {x: -0.00019517257, y: 0.00037591212, z: 0.0021985758}
+        outSlope: {x: -0.00021572194, y: 0.00032792366, z: 0.001135716}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.083333015
+        value: {x: -0.0028195246, y: 0.00040497593, z: -0.00033559918}
+        inSlope: {x: -0.00021572194, y: 0.00032792366, z: 0.001135716}
+        outSlope: {x: -0.00017462834, y: 0.00023194314, z: 0.00042392884}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: -0.0028268008, y: 0.0004146403, z: -0.00031793534}
+        inSlope: {x: -0.00017462834, y: 0.00023194314, z: 0.00042392884}
+        outSlope: {x: -0.000071904935, y: 0.00008797947, z: 0.00006328607}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: -0.0028297969, y: 0.0004183061, z: -0.00031529844}
+        inSlope: {x: -0.000071904935, y: 0.00008797947, z: 0.00006328607}
+        outSlope: {x: -0.0017145532, y: -0.0031603156, z: -0.03298511}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/legcontroller.L
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.0028991385, y: 0.00037564954, z: -0.00020807385}
+        inSlope: {x: -0, y: 0.0003759087, z: 0.00360592}
+        outSlope: {x: -0, y: 0.00037591212, z: 0.0021872174}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.041666508
+        value: {x: 0.0028991385, y: 0.0003913125, z: -0.00011694014}
+        inSlope: {x: -0, y: 0.00037591212, z: 0.0021872174}
+        outSlope: {x: -0, y: 0.00032792366, z: 0.0011231847}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.083333015
+        value: {x: 0.0028991385, y: 0.00040497593, z: -0.00007014096}
+        inSlope: {x: -0, y: 0.00032792366, z: 0.0011231847}
+        outSlope: {x: -0, y: 0.00023194314, z: 0.00041378656}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.125
+        value: {x: 0.0028991385, y: 0.0004146403, z: -0.00005289972}
+        inSlope: {x: -0, y: 0.00023194314, z: 0.00041378656}
+        outSlope: {x: -0, y: 0.00008797947, z: 0.00005909465}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.0028991385, y: 0.0004183061, z: -0.000050437447}
+        inSlope: {x: -0, y: 0.00008797947, z: 0.00005909465}
+        outSlope: {x: -0, y: -0, z: -0.07220762}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/legcontroller.R
+  - curve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: {x: 0.00000025669596, y: -0.00000003531226, z: -0.000000055131967}
+        inSlope: {x: 0.00000011658602, y: 0.0000000011595093, z: 6.8452943e-10}
+        outSlope: {x: 0.00000011658602, y: 0.0000000011595093, z: 6.8452943e-10}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      - serializedVersion: 3
+        time: 0.16666651
+        value: {x: 0.00000027612694, y: -0.000000035119008, z: -0.00000005501788}
+        inSlope: {x: 0.000000116586165, y: 0.0000000011595009, z: 6.845247e-10}
+        outSlope: {x: 0.000000116586165, y: 0.009700685, z: 0.0031374302}
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+        outWeight: {x: 0.33333334, y: 0.33333334, z: 0.33333334}
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    path: Armature/legcontroller.R/foot.R
+  m_ScaleCurves: []
+  m_FloatCurves: []
+  m_PPtrCurves: []
+  m_SampleRate: 24
+  m_WrapMode: 0
+  m_Bounds:
+    m_Center: {x: 0, y: 0, z: 0}
+    m_Extent: {x: 0, y: 0, z: 0}
+  m_ClipBindingConstant:
+    genericBindings: []
+    pptrCurveMapping: []
+  m_AnimationClipSettings:
+    serializedVersion: 2
+    m_AdditiveReferencePoseClip: {fileID: 0}
+    m_AdditiveReferencePoseTime: 0
+    m_StartTime: 0
+    m_StopTime: 0.16666651
+    m_OrientationOffsetY: 0
+    m_Level: 0
+    m_CycleOffset: 0
+    m_HasAdditiveReferencePose: 0
+    m_LoopTime: 1
+    m_LoopBlend: 0
+    m_LoopBlendOrientation: 0
+    m_LoopBlendPositionY: 0
+    m_LoopBlendPositionXZ: 0
+    m_KeepOriginalOrientation: 0
+    m_KeepOriginalPositionY: 1
+    m_KeepOriginalPositionXZ: 0
+    m_HeightFromFeet: 0
+    m_Mirror: 0
+  m_EditorCurves: []
+  m_EulerEditorCurves: []
+  m_HasGenericRootTransform: 0
+  m_HasMotionFloatCurves: 0
+  m_Events: []
