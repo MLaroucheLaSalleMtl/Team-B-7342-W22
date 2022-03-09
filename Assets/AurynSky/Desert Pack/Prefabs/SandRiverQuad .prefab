@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2727655550116079377}
   m_Layer: 0
   m_Name: 'SandRiverQuad '
-  m_TagString: Untagged
+  m_TagString: Damage
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -111,3 +111,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a4d115b461ce0f46aa2113803dc1776, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rend: {fileID: 0}
+  scrollSpeed: 0.5

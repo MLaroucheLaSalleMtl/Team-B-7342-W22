@@ -5,13 +5,14 @@ using UnityEngine;
 public class EnemyDead : MonoBehaviour
 {
     private EnemyMoving enemy;
-
+    private EnemyDamage dmg;
+    public bool hitWall = false;
     public bool isExploded = false;
 
     //Get all the body Parts
     #region Body_Parts
-    [SerializeField] private GameObject original;
-    [SerializeField] private GameObject arms;
+        [SerializeField] private GameObject original;
+    /*[SerializeField] private GameObject arms;
     [SerializeField] private GameObject antenna;
     [SerializeField] private GameObject collar;
     [SerializeField] private GameObject body;
@@ -19,7 +20,8 @@ public class EnemyDead : MonoBehaviour
     [SerializeField] private GameObject legs;
     [SerializeField] private GameObject wings;
     [SerializeField] private GameObject sword;
-    private List<GameObject> lsBodyParts = new List<GameObject>();
+    [SerializeField] private GameObject feathers;*/
+    [SerializeField] private List<GameObject> lsBodyParts = new List<GameObject>();
     #endregion
 
     [SerializeField] private int minForce = -6; //Min force of body part for death
@@ -28,15 +30,7 @@ public class EnemyDead : MonoBehaviour
     private void Start()
     {
         enemy = GetComponent<EnemyMoving>();
-
-        lsBodyParts.Add(arms);
-        lsBodyParts.Add(antenna);
-        lsBodyParts.Add(collar);
-        lsBodyParts.Add(body);
-        lsBodyParts.Add(head);
-        lsBodyParts.Add(legs);
-        lsBodyParts.Add(wings);
-        lsBodyParts.Add(sword);
+        dmg = GetComponent<EnemyDamage>();
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -46,6 +40,7 @@ public class EnemyDead : MonoBehaviour
             if (collision.gameObject.CompareTag("Wall"))
             {
                 Dead();
+                hitWall = true;
             }
         }
     }
@@ -64,7 +59,7 @@ public class EnemyDead : MonoBehaviour
             SwapModels();
             Unparent();
             Explode();
-            enemy.isAttacked = false;
+            dmg.isAttacked = false;
         }
     }
 

@@ -1,3 +1,6 @@
+// 2022-03-06   Sean Hall   Added some variables to interact with PlayerAnim script
+// 2022-03-07   Sean Hall   Added jump, capsule collider height adjustment
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,27 +12,31 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    private Rigidbody rBody;
+    PlayerAnim playerA;
+
+    public Rigidbody rBody;
     
     //variables for player movement
     private Vector3 moveDirection; //to hold the converted movement direction
     private Vector2 inputDirection = Vector2.zero; //to hold raw input direction
-    [SerializeField] private float speed = 7f;
+    public Vector3 moveVector;
+    [SerializeField] private float speed = 5f;
     [SerializeField] private float moveVelocitySmoothing = 0.05f;
    
     //variables for jumping action
-    private bool jump = false;
+    public bool jump = false;
     [SerializeField] private float jumpForce = 5f;
-    private bool grounded = true;
+    public bool grounded = true;
     const float CHECK_RADIOUS = 0.2f;
+//[SerializeField] private float allowJumpAgainAfter = 0.6f;
     [SerializeField] private Transform checkGroundPoint;
     [SerializeField] private LayerMask whatIsGround;
     private Vector3 refVelocity = Vector3.zero;
    
     //variables for dash action
-    private bool dash = false;
-    [SerializeField] private float dashForce = 0.5f;
-    [SerializeField] private float allowDashAgainAfter = 0.7f;
+    public bool dash = false;
+    [SerializeField] private float dashForce = 0.4f;
+    [SerializeField] private float allowDashAgainAfter = 0.6f;
     
     //variables for Hit action
     [SerializeField] private float hitRadius = 1f;
@@ -43,19 +50,29 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float rotateCameraY = 30f;
     private Vector3 camRotVec = Vector3.zero;
 
+    // Variables for player capsule scaling
+    private float capsuleScale;
+    const float CAP_FULL_SCALE = 1.0f;
+    const float CAP_JUMP_SCALE = 0.75f;
+    CapsuleCollider capsulePlayer;
+
     // Start is called before the first frame update
     void Start()
     {
         //cController = GetComponent<CharacterController>(); //cache character controller component 
         rBody = GetComponent<Rigidbody>(); //cache rigidbody component 
+        playerA = GetComponent<PlayerAnim>();
+        capsulePlayer = GetComponent<CapsuleCollider>();
+        capsuleScale = capsulePlayer.height; // Cache the default size
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         CheckForGround();
+        ScaleCapsule();
         ApplyMovementVelocity();
-        ApplyJumpForce();
+        ActivateJump();
         ApplyDashForce();
         RotatePlayer();
         RotateCamera();
@@ -106,13 +123,22 @@ public class PlayerControl : MonoBehaviour
         dash = false;
         moveDirection = ConvertInputDirection(inputDirection);
     }
-    private void ApplyJumpForce() { 
+
+    private void ActivateJump() { 
         if (jump)
-        {
+        {            
+            playerA.inputJump = true; // Passes to the jump trigger in PlayerAnim
             rBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
+            ScaleCharacter(CAP_JUMP_SCALE);
             jump = false;
+//Invoke("AllowJumpAgain", allowJumpAgainAfter);
         }
     }
+
+//private void AllowJumpAgain()
+//{
+//    jump = false;
+//}
 
     public void OnPause(InputAction.CallbackContext context)
     {
@@ -142,6 +168,12 @@ public class PlayerControl : MonoBehaviour
                 moveDirection = ConvertInputDirection(inputDirection);
             }
         }
+
+        /*
+         When I click right on my joystick 
+        float move = context input
+        playanim.Moving(move);
+         */
     }
 
     public void OnLookRight(InputAction.CallbackContext context)
@@ -202,6 +234,9 @@ public class PlayerControl : MonoBehaviour
         {
             if (context.performed)
             {
+                //Debug.Log("OnHit triggered");
+                playerA.Attack();
+
                 Collider[] colliders = Physics.OverlapSphere(transform.position, hitRadius);
                 foreach (Collider collider in colliders)
                 {
@@ -217,10 +252,31 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
+    private void ScaleCapsule()
+    {
+        if (grounded)
+        {
+            if (capsulePlayer.height != capsuleScale) // If on the ground and not default size, make default size
+                ScaleCharacter(CAP_FULL_SCALE);
+        }
+           
+        if (rBody.velocity.y < -0.5f && capsulePlayer.height == capsuleScale) // If falling and still default size, make jump size 
+        {
+            ScaleCharacter(CAP_JUMP_SCALE);
+        }
+    }
+
+    private void ScaleCharacter(float fraction)
+    {
+        capsulePlayer.height = capsuleScale * fraction; // Scales the capsule with the passed value
+        //capsulePlayer.center = new Vector3(0f, capsulePlayer.height * 0.5f, 0f); // Adjusts the center of the capsule to be half its height
+    }
+
     private void CheckForGround()
     {
         grounded = Physics.CheckSphere(checkGroundPoint.position, CHECK_RADIOUS, whatIsGround);
     }
+
 
 //---------------------------------------------------------------------------------------------------------------------------------
     /*
@@ -233,7 +289,7 @@ public class PlayerControl : MonoBehaviour
     //the returned Vectpr3 can be used by character controller or rigidbody
     private Vector3 ConvertInputDirection(Vector2 iDirection)
     {
-        Vector3 moveVector = new Vector3(iDirection.x, 0, iDirection.y); //change the 2D movement input to 3D world direction
+        moveVector = new Vector3(iDirection.x, 0, iDirection.y); //change the 2D movement input to 3D world direction
 
         float rotationAngle = GameManager.Instance.MainCamera.rotation.eulerAngles.y;
         

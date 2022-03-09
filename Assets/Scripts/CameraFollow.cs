@@ -8,13 +8,14 @@ using UnityEngine;
 
 public class CameraFollow : MonoBehaviour
 {
-    [SerializeField] private Transform cameraTarget; //attach the Player here. (we could later use the game manager to do this)
+    private Transform cameraTarget;
     [SerializeField] private float smoothing = 4f; //increase this if the camera movement gives you a headache!
     private Vector3 offset; //to store the initial position difference between the camera and its target
 
     // Start is called before the first frame update
     void Start()
     {
+        cameraTarget = GameManager.Instance.Player;
         //calculate the offset
         offset = transform.position - cameraTarget.position;
     }

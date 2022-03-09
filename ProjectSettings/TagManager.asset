@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Enemy
   - Wall
+  - Damage
+  - Death
+  - River
   layers:
   - Default
   - TransparentFX

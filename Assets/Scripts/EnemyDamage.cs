@@ -5,29 +5,31 @@ using UnityEngine.UI;
 
 public class EnemyDamage : MonoBehaviour
 {
-
     [SerializeField] private BloodSmear smear;
     //Particle Blood
     [SerializeField] private GameObject blood; //Blood Particle
-    [SerializeField] private float bloodOffsetY = 1.1f; //Y Coordinates of blood on the enemy
+    //[SerializeField] private float bloodOffsetY = 1.1f; //Y Coordinates of blood on the enemy
 
+    public PlayerDamage player;
 
     [SerializeField] private Image imageForHP;
     [SerializeField] private Image parentImage;
     [SerializeField] private float bleedingDuration = 0.8f;
     [SerializeField] private float knockback = 5f;
+    public bool isAttacked = false;
     private float knockbackDead = 1.2f;
     private EnemyMoving enemyMoving;
 
     private Rigidbody rb;
 
-    const float HP_MAX = 100f;
+    [SerializeField] private float HP_MAX = 100f;
     private float hp;
     public bool IsDead { get => hp <= 0f; }
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameManager.Instance.Player.GetComponent<PlayerDamage>();
         Heal();
         enemyMoving = GetComponent<EnemyMoving>();
         rb = GetComponent<Rigidbody>();
@@ -56,22 +58,17 @@ public class EnemyDamage : MonoBehaviour
             }
             if (enemyMoving)
             {
+                isAttacked = true;
                 smear.Splat();
                 rb.AddForce(-transform.forward * knockback, ForceMode.Impulse);
-                enemyMoving.isAttacked = true;
-                Invoke("StopBleeding", bleedingDuration);
+                Invoke("StopAttack", bleedingDuration);
             }
         }
     }
 
-    public void SmearOnWall()
+    private void StopAttack()
     {
-        /*if (enemyMoving.isAttacked)
-        {*/
-            
-           /* Vector3 bloodPos = new Vector3(transform.position.x, transform.position.y + bloodOffsetY, transform.position.z);
-            Instantiate(blood, bloodPos, Quaternion.identity);
-        //}*/
+        isAttacked = false;
     }
 
     private void DestroyEnemy()
@@ -79,11 +76,22 @@ public class EnemyDamage : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void StopBleeding()
+    private void Update()
     {
-        if (enemyMoving)
+        if (!player.IsDead)
         {
-            enemyMoving.isAttacked = false;
+            if (isAttacked)
+            {
+                Vector3 psPos = new Vector3(transform.position.x, transform.position.y + 1, transform.position.z);
+                Quaternion rot = Quaternion.LookRotation(psPos);
+                GameObject newBlood = Instantiate(blood, psPos, rot);
+                Destroy(newBlood, bleedingDuration);
+            }
         }
+        else
+        {
+            isAttacked = false;
+        }
+        
     }
 }

@@ -12,11 +12,8 @@ public class EnemyMoving : MonoBehaviour
     //Declaring variables
     private Animator anim; //Enemy animator
     public bool isPassive = true; //Checks if it's passive
-    public bool isAttacked = false; //Checks if it's under attack
+    //public bool isAttacked = false; //Checks if it's under attack
     public bool hitWall = false; //Checkf if it hit a wall
-
-    //Blood Smear
-    public float rangeSmear = 100f;
 
     //Moving speed of enemy variables
     [SerializeField] private float moveSpeed = 1.5f; //Speed of enemy
