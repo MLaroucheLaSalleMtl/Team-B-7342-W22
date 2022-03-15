@@ -18,7 +18,7 @@ public class FaceCamera : MonoBehaviour
     void FixedUpdate()
     {
         //transform.rotation = GameManager.Instance.MainCamera.rotation * origRot;
-        transform.eulerAngles = new Vector3(origRotEuler.x, GameManager.Instance.MainCamera.eulerAngles.y, origRotEuler.z);
+        transform.eulerAngles = new Vector3(origRotEuler.x, GameManager.Instance.MainCamera.transform.eulerAngles.y, origRotEuler.z);
 
     }
 }

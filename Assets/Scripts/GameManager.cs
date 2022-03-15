@@ -20,12 +20,14 @@ public class GameManager : MonoBehaviour
     private bool pause = false;
     private float oldTime = 0f;
 
-    [SerializeField] private Transform mainCamera;
+    private Camera mainCamera;
+    [SerializeField] private Camera mapCamera;
     [SerializeField] private Transform player;
     [SerializeField] private SelectMenu selectMenu;
 
     public Transform Player { get => player;}
-    public Transform MainCamera { get => mainCamera; }
+    public Camera MainCamera { get => mainCamera; }
+    public Camera MapCamera { get => mapCamera; }
 
 
 
@@ -45,10 +47,16 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //cache the main camera from the scene
+        mainCamera = Camera.main;
+        //change the state of the game to GamePlay
         UpdateGameState(GameState.GamePlay);
-        selectMenu.PanelToggle(-1); //tell selectMenu to hide all panels
-        Cursor.lockState = CursorLockMode.Locked; //lock the cursor in the middle of the screen
-        Cursor.visible = false; //don't show cursor
+        //tell selectMenu to hide all panels
+        selectMenu.PanelToggle(-1);
+        //lock the cursor in the middle of the screen
+        Cursor.lockState = CursorLockMode.Locked;
+        //don't show cursor
+        Cursor.visible = false; 
     }
 
     // Game state referenced from "Game Manager - Controlling the flow of your game" by Tarodev
@@ -61,13 +69,15 @@ public class GameManager : MonoBehaviour
         switch (newState)
         {
             case GameState.GamePlay:
+                mapCamera.GetComponent<Camera>().enabled = true;
                 break;
             case GameState.GamePause:
                 break;
             case GameState.Death:
                 break;
             case GameState.Cutscene:
-                GameManager.Instance.Player.GetComponent<PlayerControl>().ResetMoveDirection();
+                Player.GetComponent<PlayerControl>().ResetMoveDirection();
+                mapCamera.GetComponent<Camera>().enabled = false;
                 break;
 //default:
 //  error catch

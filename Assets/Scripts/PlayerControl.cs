@@ -12,7 +12,8 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    PlayerAnim playerA;
+    PlayerAnimMove playerAnim;
+    PlayerAttack playerAttack;
 
     public Rigidbody rBody;
     
@@ -61,7 +62,8 @@ public class PlayerControl : MonoBehaviour
     {
         //cController = GetComponent<CharacterController>(); //cache character controller component 
         rBody = GetComponent<Rigidbody>(); //cache rigidbody component 
-        playerA = GetComponent<PlayerAnim>();
+        playerAnim = GetComponent<PlayerAnimMove>();
+        playerAttack = GetComponent<PlayerAttack>();
         capsulePlayer = GetComponent<CapsuleCollider>();
         capsuleScale = capsulePlayer.height; // Cache the default size
     }
@@ -82,7 +84,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (camRotVec != Vector3.zero)
         {
-            GameManager.Instance.MainCamera.eulerAngles += (camRotVec * Time.deltaTime);
+            GameManager.Instance.MainCamera.transform.eulerAngles += (camRotVec * Time.deltaTime);
             if (!dash)
             {
                 //calculate the correct movement direction Vector3 relative to the isometric camera and store it in moveDirection
@@ -127,7 +129,7 @@ public class PlayerControl : MonoBehaviour
     private void ActivateJump() { 
         if (jump)
         {            
-            playerA.inputJump = true; // Passes to the jump trigger in PlayerAnim
+            playerAnim.inputJump = true; // Passes to the jump trigger in PlayerAnim
             rBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             ScaleCharacter(CAP_JUMP_SCALE);
             jump = false;
@@ -235,7 +237,7 @@ public class PlayerControl : MonoBehaviour
             if (context.performed)
             {
                 //Debug.Log("OnHit triggered");
-                playerA.Attack();
+                playerAttack.Attack();
 
                 Collider[] colliders = Physics.OverlapSphere(transform.position, hitRadius);
                 foreach (Collider collider in colliders)
@@ -291,7 +293,7 @@ public class PlayerControl : MonoBehaviour
     {
         moveVector = new Vector3(iDirection.x, 0, iDirection.y); //change the 2D movement input to 3D world direction
 
-        float rotationAngle = GameManager.Instance.MainCamera.rotation.eulerAngles.y;
+        float rotationAngle = GameManager.Instance.MainCamera.transform.rotation.eulerAngles.y;
         
         Quaternion rotation = Quaternion.Euler(0, rotationAngle, 0); //rotation angels for input. camera angles should be used instead if the camera can rotate
         Matrix4x4 isoMatrix = Matrix4x4.Rotate(rotation); //generate the rotation matrix

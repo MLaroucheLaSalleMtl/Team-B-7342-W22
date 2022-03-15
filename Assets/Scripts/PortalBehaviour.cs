@@ -24,6 +24,7 @@ public class PortalBehaviour : MonoBehaviour
             GameManager.Instance.UpdateGameState(GameState.Cutscene);
             GameManager.Instance.Player.position = destination.position;
             GameManager.Instance.MainCamera.GetComponent<CameraRotator>().RotateClockwise();
+            GameManager.Instance.MapCamera.GetComponent<MapRotator>().RotateMapClockwise();
             Invoke("EndCutscene", 1f);
         }
     }

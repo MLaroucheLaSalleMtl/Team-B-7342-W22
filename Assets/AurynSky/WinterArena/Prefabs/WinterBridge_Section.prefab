@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3310312879604169382}
   - component: {fileID: 8104083293852127695}
   - component: {fileID: 3821800252330533513}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: WinterBridge_Section
   m_TagString: Untagged
   m_Icon: {fileID: 0}
