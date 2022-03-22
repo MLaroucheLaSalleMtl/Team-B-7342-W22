@@ -6,9 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-//[RequireComponent(typeof(CharacterController))] //can be replaced with rigidbody
 [RequireComponent(typeof(Rigidbody))] 
-
 
 public class PlayerControl : MonoBehaviour
 {
@@ -29,7 +27,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float jumpForce = 5f;
     public bool grounded = true;
     const float CHECK_RADIOUS = 0.2f;
-//[SerializeField] private float allowJumpAgainAfter = 0.6f;
     [SerializeField] private Transform checkGroundPoint;
     [SerializeField] private LayerMask whatIsGround;
     private Vector3 refVelocity = Vector3.zero;
@@ -39,9 +36,6 @@ public class PlayerControl : MonoBehaviour
     [SerializeField] private float dashForce = 0.4f;
     [SerializeField] private float allowDashAgainAfter = 0.6f;
     
-    //variables for Hit action
-    [SerializeField] private float hitRadius = 1f;
-    [SerializeField] private float hitDamage = 10f;
 
     //variables for rotation of the player
     private Vector3 facingDirection = Vector3.forward;
@@ -93,7 +87,7 @@ public class PlayerControl : MonoBehaviour
         }
     }
 
-    //will ritate the player to face the input move direction vector
+    //will rotate the player to face the input move direction vector
     private void RotatePlayer()
     {
         if (moveDirection != Vector3.zero)
@@ -133,14 +127,8 @@ public class PlayerControl : MonoBehaviour
             rBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
             ScaleCharacter(CAP_JUMP_SCALE);
             jump = false;
-//Invoke("AllowJumpAgain", allowJumpAgainAfter);
         }
     }
-
-//private void AllowJumpAgain()
-//{
-//    jump = false;
-//}
 
     public void OnPause(InputAction.CallbackContext context)
     {
@@ -170,12 +158,6 @@ public class PlayerControl : MonoBehaviour
                 moveDirection = ConvertInputDirection(inputDirection);
             }
         }
-
-        /*
-         When I click right on my joystick 
-        float move = context input
-        playanim.Moving(move);
-         */
     }
 
     public void OnLookRight(InputAction.CallbackContext context)
@@ -238,18 +220,6 @@ public class PlayerControl : MonoBehaviour
             {
                 //Debug.Log("OnHit triggered");
                 playerAttack.Attack();
-
-                Collider[] colliders = Physics.OverlapSphere(transform.position, hitRadius);
-                foreach (Collider collider in colliders)
-                {
-                    if (collider.gameObject.GetComponent<EnemyDamage>())
-                    {
-                        if (collider.gameObject.CompareTag("Enemy"))
-                        {
-                            collider.gameObject.GetComponent<EnemyDamage>().TakeDamage(hitDamage);
-                        }
-                    }
-                }
             }
         }
     }
@@ -282,7 +252,7 @@ public class PlayerControl : MonoBehaviour
 
 //---------------------------------------------------------------------------------------------------------------------------------
     /*
- * script for rotating the player's input with is relative to the world coordinates to
+ * script for rotating the player's input which is relative to the world coordinates to
  * match the direction of the isometric camera
  * source: https://michael-l-davis.medium.com/isometric-player-movement-in-unity-998d86193b8a
  */

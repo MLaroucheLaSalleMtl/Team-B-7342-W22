@@ -6,6 +6,10 @@ public class WeaponHit : MonoBehaviour
 {
     public GameObject player;
     public float damage = 10f;
+    const float hitAgain = 0.8f;
+    private float dmgMod = 1.2f;
+
+    [SerializeField] private EnemyDash dash;
 
     bool canHit = true;
 
@@ -14,20 +18,23 @@ public class WeaponHit : MonoBehaviour
     {
         if (other.CompareTag("Player") && canHit) 
         {
-            player.GetComponent<PlayerDamage>().TakeDamage(damage);
+            float dmg = 0f;
+            if (dash.Dashing)
+            {
+                dmg = damage * dmgMod;
+            }
+            else
+            {
+                dmg = damage;
+            }
+            player.GetComponent<PlayerDamage>().TakeDamage(dmg);
             canHit = false;
-            Invoke("CanHitAgain", 0.8f);
+            Invoke("CanHitAgain", hitAgain);
         }
     }
 
     void CanHitAgain()
     {
         canHit = true;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

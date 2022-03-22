@@ -5,11 +5,12 @@ using UnityEngine;
 public class AttackPlayer : MonoBehaviour
 {
     [SerializeField] private Transform enemy;
-    [SerializeField] private PlayerDamage player;
+    private PlayerDamage player;
     private Animator anim;
 
     private void Start()
     {
+        player = GameManager.Instance.Player.GetComponent<PlayerDamage>();
         anim = enemy.GetComponent<Animator>();
     }
 
