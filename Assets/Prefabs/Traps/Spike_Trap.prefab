@@ -46,9 +46,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc96f5f48eeee234db44570167a864e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  openDuration: 2
+  closeDuration: 2
   spikeTrapDamage: 20
-  spikeTrapAnim: {fileID: 9190119756415168988}
   playerOnTop: 0
+  spikeAnim: {fileID: 9190119756415168988}
 --- !u!65 &9190119756756405604
 BoxCollider:
   m_ObjectHideFlags: 0

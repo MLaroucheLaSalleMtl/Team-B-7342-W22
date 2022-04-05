@@ -37,8 +37,10 @@ public class EnemyMoving : MonoBehaviour
         player = GameManager.Instance.Player.GetComponent<Transform>();
     }
 
+
     private void FixedUpdate()
     {
+        //dmg.SmearOnWall();
         //Keep checking if it's not attacking player
         if (isPassive && isAlive)
         {
@@ -136,7 +138,6 @@ public class EnemyMoving : MonoBehaviour
 
             yield return new WaitForSeconds(rotateWait);
             #endregion
-
             //Make it not wander
             isWandering = false;
         }

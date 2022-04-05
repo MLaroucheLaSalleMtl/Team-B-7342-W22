@@ -17,7 +17,8 @@ public class CameraFollow : MonoBehaviour
     {
         cameraTarget = GameManager.Instance.Player;
         //calculate the offset
-        offset = transform.position - cameraTarget.position;
+        //offset = transform.position - cameraTarget.position;
+        offset = Vector3.zero;
     }
 
     // Update is called once per frame

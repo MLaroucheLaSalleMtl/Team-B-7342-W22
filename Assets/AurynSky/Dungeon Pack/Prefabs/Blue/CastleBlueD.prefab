@@ -42,6 +42,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4442349237585656}
   - component: {fileID: 137710363420878522}
+  - component: {fileID: 8869915559537427934}
   m_Layer: 0
   m_Name: BannerD
   m_TagString: Untagged
@@ -124,6 +125,26 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.0000004172325, y: 0.998946, z: 0.008581221}
     m_Extent: {x: 0.9842003, y: 1.2729247, z: 0.25182456}
   m_DirtyAABB: 0
+--- !u!95 &8869915559537427934
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028684846185190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: fbbfcd251acb5824798ec6df5aafe31c, type: 3}
+  m_Controller: {fileID: 9100000, guid: 0ee59b61aee211c4faae96c41b55488c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1032295391505438
 GameObject:
   m_ObjectHideFlags: 0

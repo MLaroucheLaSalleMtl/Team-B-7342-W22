@@ -206,7 +206,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7769629397229129509}
   - component: {fileID: 7678741980257226847}
-  - component: {fileID: 2955182458735562624}
+  - component: {fileID: 3684495496962787533}
   m_Layer: 0
   m_Name: Trap_Door
   m_TagString: Untagged
@@ -251,7 +251,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &2955182458735562624
+--- !u!114 &3684495496962787533
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -260,7 +260,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7766389828067297779}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79a32bdd695d2dc4fad3cbef57972b70, type: 3}
+  m_Script: {fileID: 11500000, guid: 73553150569258a46b831d37ca83f999, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TrapDoorAnim: {fileID: 0}
+  anim: {fileID: 0}
+  openDuration: 2
+  closeDuration: 2

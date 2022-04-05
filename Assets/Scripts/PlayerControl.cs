@@ -1,5 +1,7 @@
 // 2022-03-06   Sean Hall   Added some variables to interact with PlayerAnim script
 // 2022-03-07   Sean Hall   Added jump, capsule collider height adjustment
+// 2022-04-03   Mohammadreza Abolhassani    Camera rotation feature was removed from this script
+// 2022-04-03   Mohammadreza Abolhassani    Made some fields private and used getters instead to let the serialized fields stand out in the editor
 
 using System.Collections;
 using System.Collections.Generic;
@@ -10,29 +12,29 @@ using UnityEngine.InputSystem;
 
 public class PlayerControl : MonoBehaviour
 {
-    PlayerAnimMove playerAnim;
-    PlayerAttack playerAttack;
+    private PlayerAnimMove playerAnim;
+    private PlayerAttack playerAttack;
 
-    public Rigidbody rBody;
+    private Rigidbody rBody;
     
     //variables for player movement
     private Vector3 moveDirection; //to hold the converted movement direction
     private Vector2 inputDirection = Vector2.zero; //to hold raw input direction
-    public Vector3 moveVector;
-    [SerializeField] private float speed = 5f;
+    private Vector3 moveVector;
+    [SerializeField] private float speed = 4f;
     [SerializeField] private float moveVelocitySmoothing = 0.05f;
-   
+
     //variables for jumping action
-    public bool jump = false;
+    private bool jump = false;
     [SerializeField] private float jumpForce = 5f;
-    public bool grounded = true;
+    private bool grounded = true;
     const float CHECK_RADIOUS = 0.2f;
     [SerializeField] private Transform checkGroundPoint;
     [SerializeField] private LayerMask whatIsGround;
     private Vector3 refVelocity = Vector3.zero;
-   
+
     //variables for dash action
-    public bool dash = false;
+    private bool dash = false;
     [SerializeField] private float dashForce = 0.4f;
     [SerializeField] private float allowDashAgainAfter = 0.6f;
     
@@ -41,15 +43,16 @@ public class PlayerControl : MonoBehaviour
     private Vector3 facingDirection = Vector3.forward;
     [SerializeField] private float rotationSmoothing = 0.05f;
     
-    //variables for camera rotation
-    [SerializeField] private float rotateCameraY = 30f;
-    private Vector3 camRotVec = Vector3.zero;
-
     // Variables for player capsule scaling
     private float capsuleScale;
     const float CAP_FULL_SCALE = 1.0f;
     const float CAP_JUMP_SCALE = 0.75f;
-    CapsuleCollider capsulePlayer;
+    private CapsuleCollider capsulePlayer;
+
+    public bool Dash { get => dash; }
+    public bool Grounded { get => grounded;  }
+    public Vector3 MoveVector { get => moveVector; }
+    public bool Jump { get => jump; }
 
     // Start is called before the first frame update
     void Start()
@@ -71,20 +74,6 @@ public class PlayerControl : MonoBehaviour
         ActivateJump();
         ApplyDashForce();
         RotatePlayer();
-        RotateCamera();
-    }
-
-    private void RotateCamera()
-    {
-        if (camRotVec != Vector3.zero)
-        {
-            GameManager.Instance.MainCamera.transform.eulerAngles += (camRotVec * Time.deltaTime);
-            if (!dash)
-            {
-                //calculate the correct movement direction Vector3 relative to the isometric camera and store it in moveDirection
-                moveDirection = ConvertInputDirection(inputDirection);
-            }
-        }
     }
 
     //will rotate the player to face the input move direction vector
@@ -107,7 +96,7 @@ public class PlayerControl : MonoBehaviour
 
     private void ApplyDashForce()
     {
-        if (dash)
+        if (Dash)
         {
             rBody.AddForce(moveDirection * dashForce, ForceMode.Impulse);
             Invoke("AllowDashAgain", allowDashAgainAfter);
@@ -121,7 +110,7 @@ public class PlayerControl : MonoBehaviour
     }
 
     private void ActivateJump() { 
-        if (jump)
+        if (Jump)
         {            
             playerAnim.inputJump = true; // Passes to the jump trigger in PlayerAnim
             rBody.AddForce(transform.up * jumpForce, ForceMode.Impulse);
@@ -142,7 +131,7 @@ public class PlayerControl : MonoBehaviour
     public void ResetMoveDirection()
     {
         inputDirection = Vector2.zero;
-        if (!dash) moveDirection = Vector3.zero;
+        if (!Dash) moveDirection = Vector3.zero;
     }
 
     public void OnMove(InputAction.CallbackContext context)
@@ -152,49 +141,19 @@ public class PlayerControl : MonoBehaviour
             //Player's input is a Vector2 relative to the world
             inputDirection = context.ReadValue<Vector2>();
 
-            if (!dash)
+            if (!Dash)
             {
                 //calculate the correct movement direction Vector3 relative to the isometric camera and store it in moveDirection
                 moveDirection = ConvertInputDirection(inputDirection);
             }
         }
     }
-
-    public void OnLookRight(InputAction.CallbackContext context)
-    {   
-        if (GameManager.Instance.state == GameState.GamePlay)
-        {
-            if(context.started)
-            {
-                camRotVec = new Vector3(0f, rotateCameraY, 0f);
-            }
-        }
-        if (context.canceled)
-        {
-            camRotVec = Vector3.zero;
-        }
-    }
-
-    public void OnLookLeft(InputAction.CallbackContext context)
-    {
-        if (GameManager.Instance.state == GameState.GamePlay)
-        {
-            if (context.started)
-            {
-                camRotVec = new Vector3(0f, -rotateCameraY, 0f);
-            }
-            if (context.canceled)
-            {
-                camRotVec = Vector3.zero;
-            }
-        }
-    }
-
+   
     public void OnJump(InputAction.CallbackContext context)
     {
         if (GameManager.Instance.state == GameState.GamePlay)
         {
-            if (context.performed && !jump && grounded)
+            if (context.performed && !Jump && Grounded)
             {
                 jump = true;
             }
@@ -205,7 +164,7 @@ public class PlayerControl : MonoBehaviour
     {
         if (GameManager.Instance.state == GameState.GamePlay)
         {
-            if (context.performed && !dash && grounded)
+            if (context.performed && !Dash && Grounded)
             {
                 dash = true;
             }
@@ -226,7 +185,7 @@ public class PlayerControl : MonoBehaviour
 
     private void ScaleCapsule()
     {
-        if (grounded)
+        if (Grounded)
         {
             if (capsulePlayer.height != capsuleScale) // If on the ground and not default size, make default size
                 ScaleCharacter(CAP_FULL_SCALE);
@@ -268,7 +227,7 @@ public class PlayerControl : MonoBehaviour
         Quaternion rotation = Quaternion.Euler(0, rotationAngle, 0); //rotation angels for input. camera angles should be used instead if the camera can rotate
         Matrix4x4 isoMatrix = Matrix4x4.Rotate(rotation); //generate the rotation matrix
 
-        return isoMatrix.MultiplyPoint3x4(moveVector); //apply the rotation to the vector
+        return isoMatrix.MultiplyPoint3x4(MoveVector); //apply the rotation to the vector
     }
 //----------------------------------------------------------------------------------------------------------------------------------
 }

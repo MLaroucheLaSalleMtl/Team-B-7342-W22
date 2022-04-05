@@ -1,27 +1,26 @@
+// 2022-03-29   Mohammadreza Abolhassani    Spike trap modified to inherit from trap.
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikeTrap : MonoBehaviour
+public class SpikeTrap : Trap
 {
     [SerializeField] private float spikeTrapDamage = 20f;
 
-    [SerializeField] private Animator spikeTrapAnim; //Animator for the SpikeTrap;
-    private BoxCollider spikeCollider; //BoxCollider for the SpikeTrap;
+    private BoxCollider spikeCollider; //BoxCollider for the SpikeTrap
     public bool playerOnTop = false;
-    private PlayerDamage playerDamage;
 
-    // Use this for initialization
-    void Awake()
-    {    
-        spikeCollider = GetComponent<BoxCollider>();
+    [SerializeField] private Animator spikeAnim;
+ 
 
-        StartCoroutine(OpenCloseTrap());
-    }
-
-    private void Start()
+    public new void Start()
     {
+        spikeCollider = GetComponent<BoxCollider>();
+        //get access to playerDamage script of the player
         playerDamage = GameManager.Instance.Player.GetComponent<PlayerDamage>();
+        //start opening and closing the trap
+        StartCoroutine(OpenCloseTrap());
     }
 
     IEnumerator OpenCloseTrap()
@@ -32,18 +31,17 @@ public class SpikeTrap : MonoBehaviour
             playerDamage.TakeDamage(spikeTrapDamage);
             playerOnTop = false;
         }
-        spikeTrapAnim.SetTrigger("open");
+        spikeAnim.SetTrigger("open");
         spikeCollider.isTrigger = false;
-        //wait 2 seconds;
-        yield return new WaitForSeconds(2);
+        //wait a few seconds;
+        yield return new WaitForSeconds(openDuration);
         //play close animation;
-        spikeTrapAnim.SetTrigger("close");
+        spikeAnim.SetTrigger("close");
         spikeCollider.isTrigger = true;
-        //wait 2 seconds;
-        yield return new WaitForSeconds(2);
+        //wait a few seconds;
+        yield return new WaitForSeconds(closeDuration);
         //Do it again;
         StartCoroutine(OpenCloseTrap());
-
     }
 
 

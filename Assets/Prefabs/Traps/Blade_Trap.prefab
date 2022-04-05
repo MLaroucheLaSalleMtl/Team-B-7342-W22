@@ -148,8 +148,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 242065eca62fd194c8eb2742c6028ad3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  openDuration: 2
+  closeDuration: 5
   swingTrapDamage: 100
-  swingTrapAnim: {fileID: 0}
 --- !u!1001 &4591230109891699476
 PrefabInstance:
   m_ObjectHideFlags: 0

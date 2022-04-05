@@ -36,10 +36,10 @@ public class PlayerAnimMove : MonoBehaviour
     void Update()
     {        
         // Animation
-        anim.SetBool("Grounded", playerC.grounded);
-        anim.SetFloat("MoveSpeed", playerC.moveVector.normalized.magnitude); // For locomotion blend tree
-        anim.SetBool("Dash", playerC.dash);
-        anim.SetFloat("VerticalSpeed", playerC.rBody.velocity.y);
+        anim.SetBool("Grounded", playerC.Grounded);
+        anim.SetFloat("MoveSpeed", playerC.MoveVector.normalized.magnitude); // For locomotion blend tree
+        anim.SetBool("Dash", playerC.Dash);
+        anim.SetFloat("VerticalSpeed", playerC.GetComponent<Rigidbody>().velocity.y);
         PlayJumpAnim();        
     }
 }

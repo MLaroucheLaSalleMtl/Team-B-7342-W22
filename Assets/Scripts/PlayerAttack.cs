@@ -11,8 +11,8 @@ public class PlayerAttack : MonoBehaviour
     int comboAttackNumber;
 
     // Animation parameters    
-    [SerializeField] private float animFinishTime = 0.9f;
-    private bool isAttacking_1 = false;
+    //[SerializeField] private float animFinishTime = 0.9f;
+    //private bool isAttacking_1 = false;
     float AttackSlowMod;
 
     // Start is called before the first frame update

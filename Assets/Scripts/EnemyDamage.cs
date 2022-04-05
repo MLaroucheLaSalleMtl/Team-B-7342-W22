@@ -10,7 +10,7 @@ public class EnemyDamage : MonoBehaviour
     [SerializeField] private GameObject blood; //Blood Particle
     //[SerializeField] private float bloodOffsetY = 1.1f; //Y Coordinates of blood on the enemy
 
-    public PlayerDamage player;
+    private PlayerDamage player;
 
     [SerializeField] private Image imageForHP;
     [SerializeField] private Image parentImage;
@@ -56,13 +56,13 @@ public class EnemyDamage : MonoBehaviour
                 GetComponent<EnemyMoving>().isAlive = false;
                 Invoke("DestroyEnemy", 5f);
             }
-            if (enemyMoving)
-            {
+            //if (enemyMoving)
+            //{
                 isAttacked = true;
                 smear.Splat();
                 rb.AddForce(-transform.forward * knockback, ForceMode.Impulse);
                 Invoke("StopAttack", bleedingDuration);
-            }
+            //}
         }
     }
 

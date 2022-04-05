@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class WeaponHit : MonoBehaviour
 {
-    public GameObject player;
-    public float damage = 10f;
-    const float hitAgain = 0.8f;
-    private float dmgMod = 1.2f;
-
-    [SerializeField] private EnemyDash dash;
+    [SerializeField] public float damage = 5f;
 
     bool canHit = true;
 
@@ -18,23 +13,20 @@ public class WeaponHit : MonoBehaviour
     {
         if (other.CompareTag("Player") && canHit) 
         {
-            float dmg = 0f;
-            if (dash.Dashing)
-            {
-                dmg = damage * dmgMod;
-            }
-            else
-            {
-                dmg = damage;
-            }
-            player.GetComponent<PlayerDamage>().TakeDamage(dmg);
+            GameManager.Instance.Player.GetComponent<PlayerDamage>().TakeDamage(damage);
             canHit = false;
-            Invoke("CanHitAgain", hitAgain);
+            Invoke("CanHitAgain", 0.8f);
         }
     }
 
     void CanHitAgain()
     {
         canHit = true;
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

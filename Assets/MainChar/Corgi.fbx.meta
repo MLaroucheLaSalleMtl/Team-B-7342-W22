@@ -67,7 +67,7 @@ ModelImporter:
       takeName: Armature|AllAnims
       internalID: 0
       firstFrame: 0
-      lastFrame: 286
+      lastFrame: 285
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -269,8 +269,8 @@ ModelImporter:
       name: Attack_A-1
       takeName: Armature|AllAnims
       internalID: 0
-      firstFrame: 181
-      lastFrame: 211
+      firstFrame: 180
+      lastFrame: 209
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -289,7 +289,28 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.12715216
+        functionName: ComboPossible
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.58397555
+        functionName: Combo
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: ComboReset
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -298,8 +319,8 @@ ModelImporter:
       name: Attack_A-2
       takeName: Armature|AllAnims
       internalID: 0
-      firstFrame: 221
-      lastFrame: 254
+      firstFrame: 220
+      lastFrame: 250
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -318,7 +339,28 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.14491272
+        functionName: ComboPossible
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.5106873
+        functionName: Combo
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 1
+        functionName: ComboReset
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -327,8 +369,8 @@ ModelImporter:
       name: Attack_A-3
       takeName: Armature|AllAnims
       internalID: 0
-      firstFrame: 264
-      lastFrame: 286
+      firstFrame: 260
+      lastFrame: 283
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -339,7 +381,7 @@ ModelImporter:
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0
@@ -347,7 +389,14 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 1
+        functionName: ComboReset
+        data: 
+        objectReferenceParameter: {instanceID: 0}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -409,7 +458,7 @@ ModelImporter:
     legStretch: 0.05
     feetSpacing: 0
     globalScale: 1
-    rootMotionBoneName: 
+    rootMotionBoneName: basecontroller
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1

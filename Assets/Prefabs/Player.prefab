@@ -1487,6 +1487,7 @@ GameObject:
   - component: {fileID: 3070659683157657285}
   - component: {fileID: 3070659683157657284}
   - component: {fileID: 3070659683157657283}
+  - component: {fileID: 4701943590105318915}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -1760,24 +1761,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 98665185eac21c9498307c776080b765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rBody: {fileID: 0}
-  moveVector: {x: 0, y: 0, z: 0}
   speed: 5
   moveVelocitySmoothing: 0.05
-  jump: 0
   jumpForce: 7
-  grounded: 1
   checkGroundPoint: {fileID: 3070659683258626095}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 64
-  dash: 0
   dashForce: 5
   allowDashAgainAfter: 0.7
-  hitRadius: 1
-  hitDamage: 10
   rotationSmoothing: 0.05
-  rotateCameraY: 30
 --- !u!114 &471079402418258981
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1790,6 +1783,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d80ce92285b12147986af92bfc1ea15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  inputJump: 0
 --- !u!95 &3611975137556778675
 Animator:
   serializedVersion: 4
@@ -1881,6 +1875,19 @@ MonoBehaviour:
   - {fileID: 3070659681202353931}
   - {fileID: 3070659683005419398}
   maxHp: 200
+--- !u!114 &4701943590105318915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3070659683157657342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad1bf48289d9b424883cc75970502cc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animFinishTime: 0.9
 --- !u!1 &3070659683177652915
 GameObject:
   m_ObjectHideFlags: 0

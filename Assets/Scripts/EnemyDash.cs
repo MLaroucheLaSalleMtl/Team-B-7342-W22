@@ -8,14 +8,12 @@ public class EnemyDash : MonoBehaviour
     public Transform enemy;
     private Transform player;
 
-    private bool dashing = false;
+    public bool dashing = false;
     bool turn = false;
     bool attack = false;
     [SerializeField] float dashSpeed = 100f;
 
     Vector3 playerPos;
-     
-    public bool Dashing { get => dashing; }
 
     // Start is called before the first frame update
     void Start()
