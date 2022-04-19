@@ -8,7 +8,6 @@ public class BloodSmear : MonoBehaviour
     [SerializeField] private float rangeSmear = 20f;
     private bool toSmear = true;
     [SerializeField] private float smearTime = 9f;
-    [SerializeField] private EnemyDead enemy;
 
     public List<GameObject> smearList = new List<GameObject>();
 
@@ -22,7 +21,7 @@ public class BloodSmear : MonoBehaviour
                 return;
             }
 
-            if (toSmear || enemy.hitWall)
+            if (toSmear)
             {
                 int i = Random.Range(0, smearList.Count);
                 toSmear = false;

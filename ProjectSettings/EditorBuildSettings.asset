@@ -6,7 +6,19 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: 831c4bec53352be4799b8900b215c80c
+  - enabled: 1
+    path: Assets/Scenes/loading.unity
+    guid: d986bf6b1affa004c9a9120ffcdc71dd
+  - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/ArenaScene.unity
+    guid: a458c906f4f6c9042ac8d6f97ef3a143
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 902fda0be8065e3428c3daca09daab86
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 624eabd67afb3c84d9f0c1ab189fe35c, type: 2}

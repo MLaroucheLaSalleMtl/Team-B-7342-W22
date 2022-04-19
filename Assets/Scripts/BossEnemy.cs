@@ -22,6 +22,8 @@ public class BossEnemy : MonoBehaviour
     [SerializeField] private float attackInterval = 3f;
     private bool canAttack = true;
 
+    private BossDamage _bossDmg;
+
     public bool IsAttacking { get => !canAttack; }
 
     // Start is called before the first frame update
@@ -30,6 +32,8 @@ public class BossEnemy : MonoBehaviour
         _agent = GetComponent<NavMeshAgent>();
         _anim = GetComponent<Animator>();
 
+        _bossDmg = GetComponent<BossDamage>();
+
         target = GameManager.Instance.Player;
         initialPosition = transform.position;
     }
@@ -37,14 +41,22 @@ public class BossEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (_bossDmg.IsDead)
+        {
+            Destroy(this);
+        }
+
         float distance = Vector3.Distance(transform.position, target.position);
-       
+        
         if (distance < attackDistance) //if in attack range
         {
             if (canAttack) //if not cooling down
             {
                 _agent.SetDestination(transform.position); //stop moving
-                transform.LookAt(target); //face target
+                //transform.LookAt(target); //face target
+                Quaternion targetRot = Quaternion.LookRotation(target.position - transform.position);
+                target.rotation = Quaternion.Lerp(transform.rotation, targetRot, Time.deltaTime);
+                
                 _anim.SetTrigger("Attack"); //trigger Attack animation
                 canAttack = false; //start of cool down period
                 Invoke("EnableAttack", attackInterval); //end cool down period after specified amount of time

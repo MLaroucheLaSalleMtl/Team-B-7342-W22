@@ -14,6 +14,10 @@ public class CameraRotator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+    }
+
+    private void Awake()
+    {
         targetRotation = transform.rotation;
     }
 
@@ -32,7 +36,9 @@ public class CameraRotator : MonoBehaviour
 
     public void RotateClockwise()
     {
-        targetRotation = Quaternion.Euler(transform.eulerAngles + new Vector3(0f, 90f, 0f));
+        targetRotation = Quaternion.Euler(targetRotation.eulerAngles + new Vector3(0f, 90f, 0f));
     }
+
+  
 
 }

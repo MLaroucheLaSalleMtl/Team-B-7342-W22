@@ -8,8 +8,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     //singleton declaration
-    private static GameManager instance = null;
-    public static GameManager Instance { get => instance; }
+    private static GameManager _instance = null;
+    public static GameManager Instance { get => _instance; }
 
     // Game State variables
     public GameState state;
@@ -29,16 +29,18 @@ public class GameManager : MonoBehaviour
     public Camera MainCamera { get => mainCamera; }
     public Camera MapCamera { get => mapCamera; }
 
-
+    public int level;
+    [SerializeField] private Transform[] checkPoints;
 
     private void Awake()
     {
+       
         //singleton
-        if (instance == null)
+        if (_instance == null)
         {
-            instance = this;
+            _instance = this;
         }
-        else if (instance != this)
+        else if (_instance != this)
         {
             Destroy(gameObject);
         }
@@ -47,6 +49,7 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         //cache the main camera from the scene
         mainCamera = Camera.main;
         //change the state of the game to GamePlay
@@ -56,7 +59,32 @@ public class GameManager : MonoBehaviour
         //lock the cursor in the middle of the screen
         Cursor.lockState = CursorLockMode.Locked;
         //don't show cursor
-        Cursor.visible = false; 
+        Cursor.visible = false;
+
+        GotoLevel();
+    }
+
+    public void NewGame()
+    {
+        level = 0;
+        PlayerPrefs.SetInt("level", 0);
+        PlayerPrefs.Save();
+        PauseOrPlay();
+        ReInitScene();
+    }
+
+    private void GotoLevel()
+    {
+        level =  PlayerPrefs.GetInt("level", 0);
+        if (level < 4)
+        {
+            player.position = checkPoints[level].position;
+            for (int i = 0; i < level; i++)
+            {
+                mainCamera.GetComponent<CameraRotator>().RotateClockwise();
+                mapCamera.GetComponent<MapRotator>().RotateMapClockwise();
+            }
+        }
     }
 
     // Game state referenced from "Game Manager - Controlling the flow of your game" by Tarodev
@@ -74,10 +102,16 @@ public class GameManager : MonoBehaviour
             case GameState.GamePause:
                 break;
             case GameState.Death:
+                Invoke("ReInitScene", 2f);
                 break;
             case GameState.Cutscene:
                 Player.GetComponent<PlayerControl>().ResetMoveDirection();
-                mapCamera.GetComponent<Camera>().enabled = false;
+                if(mapCamera)
+                    mapCamera.GetComponent<Camera>().enabled = false;
+                break;
+            case GameState.Win:
+                break;
+            case GameState.Main:
                 break;
 //default:
 //  error catch
@@ -86,8 +120,13 @@ public class GameManager : MonoBehaviour
         OnGameStateChanged?.Invoke(newState); // Notify other scripts through event that game state has changed (condition avoids null exception error)
     }
 
+    public void ReInitScene()
+    {
+        SceneLoader.Instance.ReLoadScene();
+    }
+
     //to be called only from OnPause input action
-    public void PuaseOrPlay()
+    public void PauseOrPlay()
     {
         if (state != GameState.Death)
         {
@@ -105,12 +144,6 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-       
     public void Quit()
     {
 #if UNITY_EDITOR
@@ -126,5 +159,7 @@ public enum GameState
     GamePlay,
     GamePause,
     Death,
-    Cutscene
+    Cutscene,
+    Win,
+    Main
 }

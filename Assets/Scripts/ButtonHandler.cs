@@ -32,9 +32,4 @@ public class ButtonHandler : MonoBehaviour, IPointerEnterHandler, IDeselectHandl
         itemSelected = GetComponent<Selectable>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
 }

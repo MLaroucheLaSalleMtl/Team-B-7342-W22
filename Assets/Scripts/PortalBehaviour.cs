@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PortalBehaviour : MonoBehaviour
 {
+    [SerializeField] private int level = 0;
     [SerializeField] private Transform destination;
 
 
@@ -21,6 +22,9 @@ public class PortalBehaviour : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
+            GameManager.Instance.level = this.level;
+            PlayerPrefs.SetInt("level", this.level);
+            PlayerPrefs.Save();
             GameManager.Instance.UpdateGameState(GameState.Cutscene);
             GameManager.Instance.Player.position = destination.position;
             GameManager.Instance.MainCamera.GetComponent<CameraRotator>().RotateClockwise();

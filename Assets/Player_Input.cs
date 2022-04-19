@@ -107,6 +107,15 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Outline"",
+                    ""type"": ""Button"",
+                    ""id"": ""b756f938-15fe-47a8-b061-a5badb032cc7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -459,6 +468,28 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""Hit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""93921498-58c2-4016-807a-7c1358f74943"",
+                    ""path"": ""<Keyboard>/e"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Outline"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3b68b93a-7cc5-4a15-9ec0-0d720539ee7c"",
+                    ""path"": ""<Gamepad>/rightShoulder"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Outline"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1055,6 +1086,7 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
         m_Player_LookRight = m_Player.FindAction("LookRight", throwIfNotFound: true);
         m_Player_LookLeft = m_Player.FindAction("LookLeft", throwIfNotFound: true);
         m_Player_Hit = m_Player.FindAction("Hit", throwIfNotFound: true);
+        m_Player_Outline = m_Player.FindAction("Outline", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1135,6 +1167,7 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LookRight;
     private readonly InputAction m_Player_LookLeft;
     private readonly InputAction m_Player_Hit;
+    private readonly InputAction m_Player_Outline;
     public struct PlayerActions
     {
         private @Player_Input m_Wrapper;
@@ -1148,6 +1181,7 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
         public InputAction @LookRight => m_Wrapper.m_Player_LookRight;
         public InputAction @LookLeft => m_Wrapper.m_Player_LookLeft;
         public InputAction @Hit => m_Wrapper.m_Player_Hit;
+        public InputAction @Outline => m_Wrapper.m_Player_Outline;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1184,6 +1218,9 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
                 @Hit.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHit;
                 @Hit.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHit;
                 @Hit.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnHit;
+                @Outline.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOutline;
+                @Outline.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOutline;
+                @Outline.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnOutline;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1215,6 +1252,9 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
                 @Hit.started += instance.OnHit;
                 @Hit.performed += instance.OnHit;
                 @Hit.canceled += instance.OnHit;
+                @Outline.started += instance.OnOutline;
+                @Outline.performed += instance.OnOutline;
+                @Outline.canceled += instance.OnOutline;
             }
         }
     }
@@ -1380,6 +1420,7 @@ public partial class @Player_Input : IInputActionCollection2, IDisposable
         void OnLookRight(InputAction.CallbackContext context);
         void OnLookLeft(InputAction.CallbackContext context);
         void OnHit(InputAction.CallbackContext context);
+        void OnOutline(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -1,0 +1,7 @@
+https://forum.unity.com/threads/how-to-find-animation-clip-length.465751/
+
+A way to read animation clip duration in the animator controller through script
+
+
+https://pixabay.com/sound-effects/search/chainsaw/
+Chainsaw SFX

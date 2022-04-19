@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossDamage : MonoBehaviour
@@ -8,6 +9,13 @@ public class BossDamage : MonoBehaviour
     [SerializeField] private Image imageForHP;
     [SerializeField] private Image parentImage;
     
+    //Death
+    [SerializeField] private GameObject original;
+    [SerializeField] private List<GameObject> lsBodyParts = new List<GameObject>();
+    [SerializeField] private List<GameObject> lsOriginalBody = new List<GameObject>();
+
+    private int minForce = -10;
+    private int maxForce = 10;
 
     [SerializeField] private float HP_MAX = 1000f;
     private float hp;
@@ -35,22 +43,47 @@ public class BossDamage : MonoBehaviour
             if (IsDead)
             {
                 Destroy(parentImage);
-                
-                Invoke("DestroyEnemy", 5f);
+                GameManager.Instance.UpdateGameState(GameState.Win);
+                DeathOfBoss();
             }
-           
         }
     }
-
   
-    private void DestroyEnemy()
+    private void DeathOfBoss()
     {
-        Destroy(gameObject);
+        //Swap
+        foreach (GameObject gb in lsOriginalBody)
+        {
+            gb.SetActive(false);
+        }
+        gameObject.layer = 8;
+        foreach (GameObject gb in lsBodyParts)
+        {
+            gb.SetActive(true);
+        }
+
+        //Unparent
+        foreach (GameObject gb in lsBodyParts)
+        {
+            gb.transform.parent = null;
+        }
+
+        //Explode
+        Rigidbody rb;
+        foreach (GameObject gb in lsBodyParts)
+        {
+            rb = gb.GetComponent<Rigidbody>();
+            rb.AddForce(transform.up * Random.Range(minForce, maxForce), ForceMode.Impulse);
+            rb.AddForce(transform.forward * Random.Range(minForce, maxForce), ForceMode.Impulse);
+        }
+        Invoke("DestroyEnemy", 5f);
     }
 
-    private void Update()
+    private void DestroyEnemy()
     {
-       
-
+        
+        SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene());
+        SceneLoader.Instance.LoadNextScene();
+        //Destroy(gameObject);
     }
 }
